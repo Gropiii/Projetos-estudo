@@ -1,5 +1,19 @@
 let listaNumerosSorteados = [];
-let limiteLista = 10;
+
+var dificuldade = prompt('Escolha a dificuldade (1,2,3)');
+console.log (`A dificuldade escolhida foi ${dificuldade}`)
+let numeroMaximo;
+if (dificuldade==1){
+ numeroMaximo=10;  
+} else {
+if (dificuldade==2){
+    numeroMaximo=100; 
+} else {
+    if (dificuldade==3){
+    numeroMaximo=1000; 
+}}}
+
+let limiteLista = numeroMaximo;
 let numeroSecreto = gerarNumeroAleatorio();
 console.log (`O número secreto é `, numeroSecreto);
 let tentativas = 1;
@@ -7,13 +21,13 @@ let tentativas = 1;
 function textosDaTela(tag,texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
-    responsiveVoice.speak(texto,'Brazilian Portuguese Female',{rate:1});
+    //responsiveVoice.speak(texto,'Brazilian Portuguese Female',{rate:1});
 }
 
 function exibirMensagemInicial() {
     textosDaTela('h1','Jogo do número secreto!');
-   textosDaTela('p','Escolha um número de 1 a 10.');       
-   }
+   textosDaTela('p',`Escolha um número de 1 a ${numeroMaximo}.`);  
+ }
 
    exibirMensagemInicial()
 
